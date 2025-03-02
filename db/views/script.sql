@@ -4,7 +4,7 @@ FROM (
     SELECT
         c.id,
         c.name,
-        'eng' AS lang,
+        'en' AS lang,
         c.state
     FROM categories c
     UNION
@@ -28,7 +28,7 @@ FROM (
         t.id,
         t.category_id,
         t.name,
-        'eng' AS lang,
+        'en' AS lang,
         t.state
     FROM treatments t
     UNION
