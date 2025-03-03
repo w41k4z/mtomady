@@ -58,3 +58,13 @@ examination_treatments.each do |treatment_name|
   )
 end
 puts "Created #{Treatment.count} treatments"
+
+admin_email = 'admin@example.com'
+admin_password = 'admin123!'
+
+admin = Admin.find_or_create_by(email: admin_email) do |admin|
+  admin.password = admin_password
+  admin.password_confirmation = admin_password
+end
+
+puts "Admin user seeded with email: #{admin_email}"

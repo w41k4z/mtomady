@@ -16,8 +16,11 @@ gem "turbo-rails"
 gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
-# Use Pundit for security
-gem 'pundit'
+# Use Devise for authentication
+gem "devise"
+# Use Pundit for authorization
+gem "pundit"
+# Use Bootstrap for styling
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
