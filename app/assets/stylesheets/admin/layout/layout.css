@@ -1,0 +1,67 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f9;
+}
+
+.admin-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+}
+
+.brand {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.admin-nav {
+  display: flex;
+  gap: 20px;
+  margin-right: 20px;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-link:hover {
+  color: #f39c12;
+}
+
+/* Logout button styling */
+.header-actions {
+  display: flex;
+  align-items: center;
+}
+
+.logout-button {
+  color: white;
+  background-color: #e74c3c;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.logout-button:hover {
+  background-color: #c0392b;
+}
+
+.admin-content {
+  flex-grow: 1;
+  padding: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 70%;
+}

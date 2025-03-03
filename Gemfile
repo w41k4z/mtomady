@@ -19,7 +19,6 @@ gem "jbuilder"
 # Use Devise for authentication
 gem "devise"
 # Use Pundit for authorization
-gem "pundit"
 # Use Bootstrap for styling
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]

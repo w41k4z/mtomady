@@ -1,10 +1,11 @@
-CREATE OR REPLACE VIEW all_categories AS
+CREATE OR REPLACE VIEW v_categories AS
 SELECT rs.*
 FROM (
     SELECT
         c.id,
         c.name,
         'en' AS lang,
+        'English' AS language,
         c.state
     FROM categories c
     UNION
@@ -12,6 +13,7 @@ FROM (
         c.id,
         ct.translation AS name,
         sl.code AS lang,
+        sl.name AS language,
         c.state
     FROM category_translations ct
     JOIN categories c
@@ -21,7 +23,7 @@ FROM (
 ) rs
 ;
 
-CREATE OR REPLACE VIEW all_treatments AS
+CREATE OR REPLACE VIEW v_treatments AS
 SELECT rs.*
 FROM (
     SELECT
@@ -29,6 +31,7 @@ FROM (
         t.category_id,
         t.name,
         'en' AS lang,
+        'English' AS language,
         t.state
     FROM treatments t
     UNION
@@ -37,6 +40,7 @@ FROM (
         t.category_id,
         tt.translation AS name,
         sl.code AS lang,
+        sl.name AS language,
         t.state
     FROM treatment_translations tt
     JOIN treatments t

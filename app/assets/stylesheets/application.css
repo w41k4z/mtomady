@@ -19,3 +19,18 @@
   font-size: 0.9rem;
   text-align: center;
 }
+
+.btn {
+  padding: 8px 16px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+  margin-top: 10px;
+  display: inline-block;
+  margin-left: auto;
+}
