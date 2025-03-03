@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_03_165600) do
+ActiveRecord::Schema[8.0].define(version: 2025_03_03_230203) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -34,12 +34,13 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_03_165600) do
     t.index ["name"], name: "index_categories_on_name", unique: true
   end
 
-  create_table "category_translations", primary_key: "[:category_id, :supported_language_id]", force: :cascade do |t|
+  create_table "category_translations", force: :cascade do |t|
     t.integer "category_id", null: false
     t.integer "supported_language_id", null: false
     t.string "translation", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["category_id", "supported_language_id"], name: "idx_on_category_id_supported_language_id_8d00a5313a", unique: true
   end
 
   create_table "supported_languages", force: :cascade do |t|
@@ -50,12 +51,13 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_03_165600) do
     t.index ["code"], name: "index_supported_languages_on_code", unique: true
   end
 
-  create_table "treatment_translations", primary_key: "[:treatment_id, :supported_language_id]", force: :cascade do |t|
+  create_table "treatment_translations", force: :cascade do |t|
     t.integer "treatment_id", null: false
     t.integer "supported_language_id", null: false
     t.string "translation", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["treatment_id", "supported_language_id"], name: "idx_on_treatment_id_supported_language_id_e4f418cc0c", unique: true
   end
 
   create_table "treatments", force: :cascade do |t|

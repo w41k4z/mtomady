@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :admins
 
   namespace :admin do
-    resources :category_translations, only: [:index, :new]
+    resources :category_translations, only: [:index, :new, :create]
   end
   
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
