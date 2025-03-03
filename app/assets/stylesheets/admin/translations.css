@@ -4,7 +4,7 @@
     justify-content: space-between;
 }
 
-.category-translations-title {
+.translations-title {
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 1.5rem;
@@ -25,28 +25,32 @@
   background-color: #2f855a;
 }
 
-.categories-list {
+.list {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-.category-card {
-  padding: .75rem 1rem;
+.card {
+  padding: .75rem 1.5rem;
   background-color: white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 0.5rem;
   border: 1px solid #edf2f7;
 }
 
-.category-name {
+.card-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.name {
   font-size: 1.25rem;
   font-weight: 600;
   color: #1a202c;
   margin-bottom: 0.5rem;
 }
 
-/* No Categories Found */
-.no-categories {
+.no-entry {
   color: #e2e8f0;
 }

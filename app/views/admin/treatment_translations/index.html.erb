@@ -1,19 +1,22 @@
 <div class="top">
-    <h1 class="translations-title">Category translations</h1>
+    <h1 class="translations-title">Treatment translations</h1>
 
     <div class="add-new-translation-btn">
         <%= link_to 'Add New Translation', new_admin_treatment_translation_path %>
     </div>
 </div>
 
-<% if @categories.any? %>
+<% if @treatments.any? %>
   <div class="list">
-    <% @categories.each do |category| %>
+    <% @treatments.each do |treatment| %>
       <div class="card">
-        <h3 class="name"><%= category.name %></h3>
+        <div class="card-info">
+          <h3 class="name"><%= treatment.name %></h3>
+          <h4>(<%= treatment.category.name %>)</h4>
+        </div>
 
         <ul>
-          <% category.category_translations.each do |translation| %>
+          <% treatment.treatment_translations.each do |translation| %>
             <li><%= translation.translation %> <b>(<%= translation.supported_language.code %>)</b></li>
           <% end %>
         </ul>
@@ -21,5 +24,5 @@
     <% end %>
   </div>
 <% else %>
-  <p class="no-entry">No categories found.</p>
+  <p class="no-entry">No treatments found.</p>
 <% end %>
