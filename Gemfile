@@ -22,6 +22,8 @@ gem "devise"
 gem "vite_rails"
 gem "js_from_routes", "~> 4.0.0", group: :development
 
+gem "whenever", require: false
+
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
 
