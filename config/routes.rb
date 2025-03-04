@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :categories, only: [ :index ]
-    resources :treatments, only: [ :index ]
+    resources :treatments, only: [ :index, :show ]
   end
 
   resources :client, only: [ :index ]
@@ -22,5 +22,5 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # The root path route ("/")
-  root "index#index"
+  root "client#index"
 end

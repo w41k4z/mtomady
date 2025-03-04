@@ -25,6 +25,17 @@ export default {
           console.error("Error fetching categories:", error);
         });
     },
+
+    chooseCategory(category) {
+      if (category && category.category_id) {
+        this.$router.push({
+          name: "treatment",
+          params: { category_id: category.category_id },
+        });
+      } else {
+        console.error("Invalid category object:", category);
+      }
+    },
   },
 };
 </script>
