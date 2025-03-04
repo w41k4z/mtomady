@@ -49,6 +49,12 @@ export default {
 
     <!-- treatments Grid -->
     <div class="row justify-content-center">
+      <div v-if="treatments.length === 0" class="col-12 text-center">
+        <p class="text-muted">
+          No treatment found for your language for this category.
+        </p>
+      </div>
+
       <div
         class="col-lg-4 col-md-6 mb-4"
         v-for="(treatment, index) in treatments"

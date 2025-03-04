@@ -51,6 +51,10 @@ export default {
 
     <!-- Categories Grid -->
     <div class="row justify-content-center">
+      <div v-if="categories.length === 0" class="col-12 text-center">
+        <p class="text-muted">No categories found for your language.</p>
+      </div>
+
       <div
         class="col-lg-4 col-md-6 mb-4"
         v-for="(category, index) in categories"
