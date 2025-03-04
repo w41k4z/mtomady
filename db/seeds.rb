@@ -1,30 +1,29 @@
-puts "Database cleaning..."
-
-TreatmentTranslation.destroy_all
-Treatment.destroy_all
-CategoryTranslation.destroy_all
-Category.destroy_all
-SupportedLanguage.destroy_all
-
 puts "Seeding supported languages..."
-SupportedLanguage.create!(
-  code: 'fr',
-  name: 'French',
-  created_at: Time.current,
-  updated_at: Time.current
-)
 
-SupportedLanguage.create!(
-  code: 'mg',
-  name: 'Malagasy',
-  created_at: Time.current,
-  updated_at: Time.current
-)
+# Use find_or_create_by to avoid duplicates
+SupportedLanguage.find_or_create_by!(code: 'fr') do |language|
+  language.name = 'French'
+  language.created_at = Time.current
+  language.updated_at = Time.current
+end
+
+SupportedLanguage.find_or_create_by!(code: 'mg') do |language|
+  language.name = 'Malagasy'
+  language.created_at = Time.current
+  language.updated_at = Time.current
+end
+
 puts "Created #{SupportedLanguage.count} supported languages"
 
 puts "Creating categories..."
-diagnostics_category = Category.create!(name: 'Diagnostics', state: 0)
-examinations_category = Category.create!(name: 'Examinations', state: 0)
+diagnostics_category = Category.find_or_create_by!(name: 'Diagnostics') do |category|
+  category.state = 0
+end
+
+examinations_category = Category.find_or_create_by!(name: 'Examinations') do |category|
+  category.state = 0
+end
+
 puts "Created #{Category.count} categories"
 
 puts "Creating treatments under Diagnostics category..."
@@ -34,11 +33,9 @@ diagnostic_treatments = [
   'myelography', 'prenatal testing', 'ultrasound', 'urography'
 ]
 diagnostic_treatments.each do |treatment_name|
-  Treatment.create!(
-    name: treatment_name,
-    category_id: diagnostics_category.id,
-    state: 0
-  )
+  Treatment.find_or_create_by!(name: treatment_name, category_id: diagnostics_category.id) do |treatment|
+    treatment.state = 0
+  end
 end
 
 puts "Creating treatments under Examinations category..."
@@ -51,14 +48,14 @@ examination_treatments = [
 ]
 
 examination_treatments.each do |treatment_name|
-  Treatment.create!(
-    name: treatment_name,
-    category_id: examinations_category.id,
-    state: 1
-  )
+  Treatment.find_or_create_by!(name: treatment_name, category_id: examinations_category.id) do |treatment|
+    treatment.state = 1
+  end
 end
+
 puts "Created #{Treatment.count} treatments"
 
+# Create admin user
 admin_email = 'admin@example.com'
 admin_password = 'admin123!'
 
@@ -67,4 +64,4 @@ admin = Admin.find_or_create_by(email: admin_email) do |admin|
   admin.password_confirmation = admin_password
 end
 
-puts "Admin user seeded with email: #{admin_email}"
+puts "Admin user seeded with email: #{admin_email} and password: #{admin_password}"
