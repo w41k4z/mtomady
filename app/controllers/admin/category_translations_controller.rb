@@ -9,6 +9,7 @@ class Admin::CategoryTranslationsController < AdminController
     @languages = SupportedLanguage.all
   end
 
+  # Adding new category translation
   def create
     category = Category.find_by(id: params[:category_id])
     if category.present?

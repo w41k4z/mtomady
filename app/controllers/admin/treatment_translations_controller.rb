@@ -9,6 +9,7 @@ class Admin::TreatmentTranslationsController < AdminController
     @languages = SupportedLanguage.all
   end
 
+  # Adding new treatment translation
   def create
     treatment = Treatment.find_by(id: params[:treatment_id])
     if treatment.present?

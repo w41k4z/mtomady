@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :treatments, only: [ :index, :show ]
   end
 
+  # SPA endpoint
   resources :client, only: [ :index ]
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

@@ -16,9 +16,9 @@ export default {
 
   methods: {
     fetchTreatment() {
-      // Retrieve the treatment id from the route params
       const route = useRoute();
       const lang = navigator.language;
+      // Retrieve the treatment id passed from the treatment selection component
       const treatmentId = route.params.treatment_id;
       apiService
         .get(`treatments/${treatmentId}?lang=${lang}`)
@@ -32,6 +32,7 @@ export default {
 
     submitForm() {
       if (this.fullName) {
+        // TODO: implement client treatment submission
         console.log("Full Name:", this.fullName);
         console.log("Selected Treatment:", this.treatment.name);
 

@@ -17,6 +17,7 @@ export default {
     fetchTreatments() {
       const lang = navigator.language;
       const route = useRoute();
+      // Retrieve the category id passed from the category selection component
       const categoryId = route.params.category_id;
       apiService
         .get(`treatments?lang=${lang}&category_id=${categoryId}`)
