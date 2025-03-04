@@ -1,0 +1,35 @@
+services:
+  database:
+    image: postgres:15
+    container_name: postgres-db
+    networks:
+      - network
+    environment:
+      POSTGRES_DB: mtomady
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+    volumes:
+      - data:/var/lib/postgresql/data
+
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: bash -c "bin/rails db:migrate && bin/rails db:seed && bin/rails server -b 0.0.0.0"
+    volumes:
+      - ".:/rails"
+    networks:
+      - network
+    ports:
+      - "3000:3000"
+    environment:
+      RAILS_ENV: development
+      RAILS_HOST: 0.0.0.0
+    depends_on:
+      - database
+
+networks:
+  network:
+
+volumes:
+  data:
