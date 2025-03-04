@@ -2,10 +2,15 @@ Rails.application.routes.draw do
   devise_for :admins
 
   namespace :admin do
-    resources :category_translations, only: [:index, :new, :create]
-    resources :treatment_translations, only: [:index, :new, :create]
+    resources :category_translations, only: [ :index, :new, :create ]
+    resources :treatment_translations, only: [ :index, :new, :create ]
   end
-  
+
+  namespace :api do
+    resources :categories, only: [ :index ]
+    resources :treatments, only: [ :index ]
+  end
+
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
