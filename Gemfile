@@ -18,8 +18,6 @@ gem "stimulus-rails"
 gem "jbuilder"
 # Use Devise for authentication
 gem "devise"
-# Use Pundit for authorization
-# Use Bootstrap for styling
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
