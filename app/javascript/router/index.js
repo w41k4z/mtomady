@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import CategoryList from '@/components/CategoryList.vue';
-import TreatmentList from '@/components/TreatmentList.vue';
+import CategorySelection from '@/views/CategorySelection.vue';
+import TreatmentSelection from '@/views/TreatmentSelection.vue';
 
 const routes = [
-  { path: '/', component: CategoryList },
-  { path: '/treatment', component: TreatmentList },
+  { path: '/', name: 'Category', component: CategorySelection },
+  { path: '/treatment', name: 'Treatment', component: TreatmentSelection },
 ];
 
 const router = createRouter({
