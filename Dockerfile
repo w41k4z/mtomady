@@ -73,4 +73,5 @@ ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
 # Start server via Thruster by default, this can be overwritten at runtime
 EXPOSE 80
-CMD ["bash", "-c", "cron && ./bin/thrust ./bin/rails server"]
+CMD ["bash", "-c", "bin/rails db:migrate && bin/rails db:seed && bin/rails server -b 0.0.0.0"]
+
