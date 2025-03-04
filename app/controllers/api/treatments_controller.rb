@@ -1,6 +1,7 @@
 class Api::TreatmentsController < ApplicationController
   def index
-    @treatments = Treatment.all
+    lang = params[:lang] || "en"
+    @treatments = TreatmentView.where(lang: lang)
     render json: @treatments
   end
 end
