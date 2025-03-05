@@ -1,0 +1,36 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="logo-container">
+      <%= image_tag('mtomady.jpg', alt: 'Admin Logo', class: 'logo') %>
+      <h2 class="login-title">Admin Login</h2>
+      <% if alert.present? %>
+        <p class="alert"><%= alert %></p>
+      <% end %>
+    </div>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      
+
+      <div class="input-group">
+        <%= f.label :email, class: "input-label" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input-field" %>
+      </div>
+
+      <div class="input-group">
+        <%= f.label :password, class: "input-label" %>
+        <%= f.password_field :password, autocomplete: "current-password", class: "input-field" %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="checkbox-group">
+          <%= f.check_box :remember_me, class: "checkbox-input" %>
+          <%= f.label :remember_me, class: "checkbox-label" %>
+        </div>
+      <% end %>
+
+      <div class="submit-button">
+        <%= f.submit "Log in", class: "btn-submit" %>
+      </div>
+    <% end %>
+  </div>
+</div>

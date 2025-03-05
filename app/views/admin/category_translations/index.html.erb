@@ -1,0 +1,25 @@
+<div class="top">
+    <h1 class="translations-title">Category translations</h1>
+
+    <div class="add-new-translation-btn">
+        <%= link_to 'Add New Translation', new_admin_category_translation_path %>
+    </div>
+</div>
+
+<% if @categories.any? %>
+  <div class="list">
+    <% @categories.each do |category| %>
+      <div class="card">
+        <h3 class="name"><%= category.name %></h3>
+
+        <ul>
+          <% category.category_translations.each do |translation| %>
+            <li><%= translation.translation %> <b>(<%= translation.supported_language.code %>)</b></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p class="no-entry">No categories found.</p>
+<% end %>

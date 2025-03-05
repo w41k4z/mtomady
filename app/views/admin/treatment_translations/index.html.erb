@@ -1,0 +1,28 @@
+<div class="top">
+    <h1 class="translations-title">Treatment translations</h1>
+
+    <div class="add-new-translation-btn">
+        <%= link_to 'Add New Translation', new_admin_treatment_translation_path %>
+    </div>
+</div>
+
+<% if @treatments.any? %>
+  <div class="list">
+    <% @treatments.each do |treatment| %>
+      <div class="card">
+        <div class="card-info">
+          <h3 class="name"><%= treatment.name %></h3>
+          <h4>(<%= treatment.category.name %>)</h4>
+        </div>
+
+        <ul>
+          <% treatment.treatment_translations.each do |translation| %>
+            <li><%= translation.translation %> <b>(<%= translation.supported_language.code %>)</b></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p class="no-entry">No treatments found.</p>
+<% end %>

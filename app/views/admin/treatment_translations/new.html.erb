@@ -1,0 +1,28 @@
+<h1 class="form-title">New treatment translation</h1>
+
+<% if flash[:error] %>
+  <p class="alert"><%= flash[:error] %></p>
+<% end %>
+
+<div class="translation-form-container">
+  <%= form_with url: admin_treatment_translations_path, method: :post, local: true do |f| %>
+    <div class="form-group">
+      <label for="treatment_id">Treatment</label>
+      <%= select_tag :treatment_id, options_from_collection_for_select(@treatments, :id, :name), class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <label for="supported_language_id">Language</label>
+      <%= select_tag :supported_language_id, options_from_collection_for_select(@languages, :id, :name), class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <label for="translation">Translation</label>
+      <%= text_field_tag :translation, nil, class: "form-control", placeholder: "Enter translation here..." %>
+    </div>
+
+    <div class="form-actions">
+      <%= submit_tag "Create Translation", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
