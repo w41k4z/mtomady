@@ -18,7 +18,8 @@ Follow these steps to set up the MTOMADY environment:
 Clone the repository to your local machine:
 
 ```bash
-git clone [repository-url]
+git clone https://github.com/w41k4z/mtomady.git
+cd mtomady
 ```
 
 ### Step 2: Start Containers
@@ -37,7 +38,9 @@ Wait for the MTOMADY server container to initialize completely. Note that initia
 
 ### Step 3: Database Setup
 
-1. Identify the Postgres container ID:
+The application rely on some database view for the client part.
+
+1. Open a new terminal and identify the Postgres container ID:
 
 ```bash
 # For Unix/Linux/MacOS
